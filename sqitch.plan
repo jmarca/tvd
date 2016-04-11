@@ -3,4 +3,4 @@
 %uri=https://github.com/jmarca/tvd
 
 tvd [detectors_schema:newtbmap calvad_db_geoextensions:geoextensions] 2016-04-11T18:13:29Z James E. Marca <james@activimetrics.com> # tvd table
-populate_tvd 2016-04-11T18:36:17Z James E. Marca <james@activimetrics.com> # populate tvd with initial data
+populate_tvd [tvd] 2016-04-11T18:36:17Z James E. Marca <james@activimetrics.com> # populate tvd with initial data
