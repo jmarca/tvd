@@ -47,7 +47,13 @@ ALTER TABLE ONLY tvd
 -- Name: newtbmap_tvd_geom; Type: INDEX; Schema: newtbmap; Owner: slash; Tablespace:
 --
 
+SET search_path = public, newtbmap, pg_catalog;
+
 CREATE INDEX newtbmap_tvd_geom ON tvd USING gist (geom);
+
+INSERT INTO public.geometry_columns(f_table_catalog, f_table_schema, f_table_name, f_geometry_column, coord_dimension, srid, "type")
+ SELECT '', 'newtbmap', 'tvd', 'geom', ST_CoordDim(geom), ST_SRID(geom), GeometryType(geom)
+ FROM newtbmap.tvd limit 1;
 
 
 COMMIT;
