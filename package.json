@@ -13,7 +13,7 @@
   },
   "scripts": {
       "test": "tap"
-      ,"sqitch:dependencies":"./deploy_tgt_schema.sh"
+      ,"sqitch:dependencies":"./deploy_tgt_schema.sh && ./deploy_tgt_geoextensions.sh"
       ,"install" : "npm run sqitch:dependencies && sqitch deploy ${SQITCH_DB_URI}"
       ,"uninstall" : "sqitch revert ${SQITCH_DB_URI}"
   },
