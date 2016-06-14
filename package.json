@@ -4,7 +4,7 @@
   "description": "Sqitch packages for tvd table for CalVAD, etc",
   "main": "index.js",
   "config": {
-      "tgt_db":"test",
+      "tgt_db":"changeme",
       "tgt_host":"127.0.0.1",
       "tgt_user":"slash"
   },
@@ -13,10 +13,14 @@
   },
   "scripts": {
       "test": "tap"
-      ,"sqitch:dependencies":"deploy_tgt_schema.sh && deploy_tgt_geoextensions.sh"
-      ,"install" : "npm run sqitch:dependencies && sqitch deploy ${SQITCH_DB_URI}"
-      ,"uninstall" : "sqitch revert ${SQITCH_DB_URI}"
+      ,"preinstall":"echo `env | grep npm_ ` "
+      ,"install":"sqitch deploy ${SQITCH_DB_URI}"
+      ,"preuninstall" : "sqitch revert ${SQITCH_DB_URI}"
   },
+    "dependencies":{
+        "calvad_db_geoextensions":"jmarca/calvad_db_geoextensions",
+        "calvad_detectors_schema":"jmarca/calvad_detectors_schema"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jmarca/tvd.git"

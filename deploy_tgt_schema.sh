@@ -9,4 +9,4 @@ tgt_user=${npm_package_config_tgt_user:-""}
 
 SQITCH_TGT_DB_URI=${SQITCH_DB_URI:-"db:pg://${tgt_user}@${tgt_host}:${tgt_port}/$tgt_db"}
 
-SQITCH_DB_URI=${SQITCH_TGT_DB_URI} npm install jmarca/calvad_detectors_schema
+SQITCH_DB_URI=${SQITCH_TGT_DB_URI} npm install ../calvad_detectors_schema
