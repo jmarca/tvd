@@ -11,12 +11,12 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-      "test": "tap"
-      ,"preinstall":"echo `env | grep npm_ ` "
-      ,"install":"sqitch deploy ${SQITCH_DB_URI}"
-      ,"preuninstall" : "sqitch revert ${SQITCH_DB_URI}"
-  },
+    "scripts": {
+        "test": "tap"
+        ,"sqitch:deps":"deploy_tgt_schema.sh && deploy_tgt_geoextensions.sh"
+        ,"sqitch:deploy":"npm run sqitch:deps && sqitch deploy ${SQITCH_DB_URI}"
+        ,"sqitch:revert" : "sqitch revert ${SQITCH_DB_URI}"
+    },
     "dependencies":{
         "calvad_db_geoextensions":"jmarca/calvad_db_geoextensions",
         "calvad_detectors_schema":"jmarca/calvad_detectors_schema"
