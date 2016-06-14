@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "Sqitch packages for tvd table for CalVAD, etc",
   "main": "index.js",
+  "config": {
+      "tgt_db":"test",
+      "tgt_host":"127.0.0.1",
+      "tgt_user":"slash"
+  },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "tap"
-      ,"install" : "sqitch deploy ${SQITCH_DB_URI}"
+      "test": "tap"
+      ,"sqitch:detectors_schema":"SQITCH_DB_URI=${SQITCH_TGT_DB_URI} npm install jmarca/calvad_detectors_schema"
+      ,"sqitch:dependencies":""
+      ,"install" : "npm run dependencies && sqitch deploy ${SQITCH_DB_URI}"
       ,"uninstall" : "sqitch revert ${SQITCH_DB_URI}"
   },
   "repository": {
